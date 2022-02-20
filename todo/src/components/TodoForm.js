@@ -1,28 +1,36 @@
-import React, {useState} from 'react'
+import React, { useState } from "react";
 
-function TodoForm() {
-    const [input, setInput] = useState('')
-  return (
-    
-    <form className='todo_form'>
-
-<input type="text" placeholder='Add a todo' value={input} name="text" className='todo-input'/>
-
-
-
-
-
-<button className='todo-button'> Add todo</button>
-    </form>
-    
-    
-    
-    
-    
-    
-    
-   
-  )
+function TodoForm(props) {
+  const [input, setInput] = useState("");
+const handleChange = e => {
+    setInput(e.target.value)
 }
 
-export default TodoForm
+
+
+  const hendleSubmit = e => {
+      e.preventDefault();
+
+//  props.onSubmit({
+//      id: Math.floor(Math.rendom() * 10000),
+//      text: input
+//  })
+setInput('');
+  };
+  return (
+    <form className="todo_form" onSubmit={hendleSubmit}>
+      <input
+        type="text"
+        placeholder="Add a todo"
+        value={input}
+        name="text"
+        className="todo-input"
+        onChange={handleChange}
+      />
+
+      <button className="todo-button"> Add todo</button>
+    </form>
+  );
+}
+
+export default TodoForm;

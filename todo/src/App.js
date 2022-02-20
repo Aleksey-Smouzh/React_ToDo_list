@@ -12,11 +12,6 @@ function App() {
 
 
   </div>
- 
-
-
-
-
   
   </>)
 }
